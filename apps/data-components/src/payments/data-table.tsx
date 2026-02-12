@@ -1,5 +1,3 @@
-"use client";
-
 import {
   type ColumnDef,
   flexRender,
@@ -19,7 +17,7 @@ import {
   TableRow,
 } from "../components/ui/table";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import { useState } from "react";
 
 interface DataTableProps<TData, TValue> {

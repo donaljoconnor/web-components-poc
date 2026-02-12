@@ -5,6 +5,13 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
+module.exports = {
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: ["./apps/data-components/tsconfig.json"]
+  }
+}
+
 export default defineConfig([
   globalIgnores(['dist']),
   {
