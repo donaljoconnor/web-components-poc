@@ -5,7 +5,7 @@ import { defineConfig } from 'vite'
 import banner from 'vite-plugin-banner'
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
-const builtClassesPrefix = 'nf-wc-'
+const builtClassesPrefix = 'aon-wc-'
 
 export default defineConfig({
   plugins: [
@@ -15,13 +15,13 @@ export default defineConfig({
     // classnames clash issues in case of who is using the web components
     // is also using similar classess
     utwm({
-      classGenerator: {
-        classPrefix: builtClassesPrefix,
-        customGenerate: (original, options) => {
-          return options.classPrefix + original
-        },
-      },
-    }),
+     classGenerator: {
+       classPrefix: builtClassesPrefix,
+       customGenerate: (original, options) => {
+         return options.classPrefix + original
+       },
+     },
+   }),
 
     // Inject CSS into same final JS file
     // so final user doesn't need to add
@@ -39,6 +39,17 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'web-components',
       fileName: () => `web-components.js`,
+    },
+    rollupOptions: {
+      input: {
+        main: './index.html',
+      },
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
     },
   },
   define: {

@@ -4,6 +4,7 @@
   "version": "0.1.84",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "build": "tsc && npx tw-patch extract && vite build",
     "prepare": "tw-patch install",
     "lint": "eslint .",

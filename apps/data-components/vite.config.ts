@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
+import utwm from 'unplugin-tailwindcss-mangle/vite'
+
+const builtClassesPrefix = 'nf-wc-'
 
 // https://vite.dev/config/
 export default defineConfig({
